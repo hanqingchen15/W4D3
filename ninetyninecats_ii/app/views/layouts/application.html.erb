@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NinetyNineCats</title>
+    <%= csrf_meta_tags %>
+    
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+  
+  
+  
+  <body>
+    <% if session[:session_token] %>
+      <h1> <%= current_user.user_name %>
+      <button type="submit">Logout</button>
+      </h1>
+    <% else %>
+      <a href=" <%= new_session_url %> ">login</a>
+    <% end %>
+    
+    
+    
+    <%= yield %>
+  </body>
+</html>
